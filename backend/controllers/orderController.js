@@ -46,6 +46,14 @@ export const adminCreateOrder = async (req, res) => {
         });
 
         const createdOrder = await order.save();
+
+        // Automatically clear the user's cart in the database when an admin creates an order (e.g. from a prescription)
+        const cart = await Cart.findOne({ user: userId });
+        if (cart) {
+            cart.items = [];
+            await cart.save();
+        }
+
         res.status(201).json(createdOrder);
     } catch (error) {
         res.status(500).json({ message: 'Server Error', error: error.message });
