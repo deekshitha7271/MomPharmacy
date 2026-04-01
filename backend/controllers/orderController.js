@@ -1,4 +1,5 @@
 import Order from '../models/Order.js';
+import Cart from '../models/Cart.js';
 
 export const addOrderItems = async (req, res) => {
     const { orderItems, shippingAddress, itemsPrice, taxPrice, totalPrice } = req.body;
@@ -69,6 +70,14 @@ export const finalizeOrder = async (req, res) => {
         if (order) {
             order.status = 'Processing';
             const updatedOrder = await order.save();
+
+            // Automatically clear the user's cart in the database upon successful finalization
+            const cart = await Cart.findOne({ user: order.user });
+            if (cart) {
+                cart.items = [];
+                await cart.save();
+            }
+
             res.json(updatedOrder);
         } else {
             res.status(404).json({ message: 'Order not found' });
