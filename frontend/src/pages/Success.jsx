@@ -23,6 +23,8 @@ const Success = () => {
                 // In a production app, we would verify the sessionId with Stripe here.
                 // For this implementation, we simply finalize the order.
                 await axios.put(`/api/orders/${orderId}/finalize`, {}, { withCredentials: true });
+                // Also clear the database cart
+                await axios.post('/api/cart/clear', {}, { withCredentials: true });
                 setStatus('success');
 
                 // Automatically redirect after 5 seconds
