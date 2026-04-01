@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Trash2, ChevronRight, ShoppingCart, Loader2 } from 'lucide-react';
 import { AuthContext } from '../context/AuthContext';
 import { CartContext } from '../context/CartContext';
+import { getImageUrl } from '../utils/urlConfig';
 
 const Cart = () => {
     const { user } = useContext(AuthContext);
@@ -80,7 +81,7 @@ const Cart = () => {
                             {cartItems.map(item => (
                                 <div key={item.medicine} className="flex gap-4 py-4 border-b border-gray-50 last:border-0 hover:bg-gray-50/50 transition px-2 rounded-md">
                                     <div className="w-20 h-20 border border-gray-100 rounded p-1 flex-shrink-0 bg-white">
-                                        <Link to={`/medicine/${item.medicine}`}><img src={item.image} alt={item.name} className="w-full h-full object-contain" /></Link>
+                                        <Link to={`/medicine/${item.medicine}`}><img src={getImageUrl(item.image)} alt={item.name} className="w-full h-full object-contain" /></Link>
                                     </div>
                                     <div className="flex-grow flex flex-col justify-between">
                                         <div className="flex justify-between">

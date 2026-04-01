@@ -5,6 +5,7 @@ import MedicineCard from '../components/MedicineCard';
 import Loader from '../components/Loader';
 import { getHealthIcon } from '../data/healthIcons.jsx';
 import { Search, Zap, FileText, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
+import { getImageUrl } from '../utils/urlConfig';
 
 const Home = () => {
     const [trending, setTrending] = useState([]);
@@ -173,7 +174,7 @@ const Home = () => {
                             {categories.map((cat) => (
                                 <Link to={`/category/${encodeURIComponent(cat.name)}`} key={cat._id} className="min-w-[170px] md:min-w-[210px] bg-white border border-gray-100 shadow-sm rounded-xl py-8 px-5 flex flex-col items-center justify-between cursor-pointer hover:shadow-md hover:border-gray-200 transition-all duration-300 text-center group snap-start">
                                     <div className="w-28 h-28 md:w-36 md:h-36 mb-6 flex items-center justify-center">
-                                        <img src={cat.imageUrl} alt={cat.name} className="max-w-full max-h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-300" />
+                                        <img src={getImageUrl(cat.imageUrl)} alt={cat.name} className="max-w-full max-h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-300" />
                                     </div>
                                     <span className="font-semibold text-[14px] md:text-[16px] text-gray-800 leading-snug group-hover:text-[#10847e]">{cat.name}</span>
                                 </Link>

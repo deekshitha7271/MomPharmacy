@@ -3,12 +3,14 @@ import { AuthContext } from '../context/AuthContext';
 import { CartContext } from '../context/CartContext';
 import { Link } from 'react-router-dom';
 import { ShoppingCart } from 'lucide-react';
+import { getImageUrl } from '../utils/urlConfig';
 
 const MedicineCard = ({ medicine }) => {
     const { user } = useContext(AuthContext);
     const { addToCart, cartItems } = useContext(CartContext);
     const discountPrice = (medicine.price * 0.8).toFixed(2);
     const [added, setAdded] = useState(false);
+    const imageUrl = getImageUrl(medicine.imageUrl);
 
     const addToCartHandler = async (e) => {
         e.preventDefault();
@@ -37,7 +39,7 @@ const MedicineCard = ({ medicine }) => {
 
             <Link to={`/medicine/${medicine._id}`} className="block relative overflow-hidden rounded-md mb-3 bg-white flex items-center justify-center p-2 h-36 mt-4">
                 <img
-                    src={medicine.imageUrl}
+                    src={imageUrl}
                     alt={medicine.name}
                     className="max-h-full object-contain group-hover:scale-[1.05] transition-transform duration-300"
                 />
