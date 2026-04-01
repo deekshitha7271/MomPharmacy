@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useSearchParams, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import Loader from '../components/Loader';
 import { CheckCircle2, AlertCircle } from 'lucide-react';
+import { CartContext } from '../context/CartContext';
 
 const Success = () => {
+    const { clearCart } = useContext(CartContext);
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
     const orderId = searchParams.get('order_id');
@@ -23,8 +25,8 @@ const Success = () => {
                 // In a production app, we would verify the sessionId with Stripe here.
                 // For this implementation, we simply finalize the order.
                 await axios.put(`/api/orders/${orderId}/finalize`, {}, { withCredentials: true });
-                // Also clear the database cart
-                await axios.post('/api/cart/clear', {}, { withCredentials: true });
+                // Cleanly clear both DB and UI state using context
+                await clearCart();
                 setStatus('success');
 
                 // Automatically redirect after 5 seconds
