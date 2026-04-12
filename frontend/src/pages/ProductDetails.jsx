@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Loader from '../components/Loader';
+import OptimizedImage from '../components/OptimizedImage';
 import { ShieldCheck, Truck, RotateCcw } from 'lucide-react';
 import { getImageUrl } from '../utils/urlConfig';
 
@@ -40,7 +41,11 @@ const ProductDetails = () => {
 
                 {/* Left: Image Viewer */}
                 <div className="md:w-5/12 p-8 flex items-center justify-center border-b md:border-b-0 md:border-r border-gray-200 bg-white">
-                    <img src={getImageUrl(medicine.imageUrl)} alt={medicine.name} className="max-w-full h-auto object-contain max-h-96" />
+                    <OptimizedImage
+                        src={getImageUrl(medicine.imageUrl)}
+                        alt={medicine.name}
+                        className="w-full h-auto object-contain max-h-96"
+                    />
                 </div>
 
                 {/* Right: Product Info */}

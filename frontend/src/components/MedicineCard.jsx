@@ -4,6 +4,7 @@ import { CartContext } from '../context/CartContext';
 import { Link } from 'react-router-dom';
 import { ShoppingCart } from 'lucide-react';
 import { getImageUrl } from '../utils/urlConfig';
+import OptimizedImage from './OptimizedImage';
 
 const MedicineCard = ({ medicine }) => {
     const { user } = useContext(AuthContext);
@@ -38,10 +39,10 @@ const MedicineCard = ({ medicine }) => {
             )}
 
             <Link to={`/medicine/${medicine._id}`} className="block relative overflow-hidden rounded-md mb-3 bg-white flex items-center justify-center p-2 h-36 mt-4">
-                <img
+                <OptimizedImage
                     src={imageUrl}
                     alt={medicine.name}
-                    className="max-h-full object-contain group-hover:scale-[1.05] transition-transform duration-300"
+                    className="w-full h-full object-contain group-hover:scale-[1.05] transition-transform duration-300"
                 />
             </Link>
 

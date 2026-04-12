@@ -22,12 +22,13 @@ const Footer = () => {
                             Your trusted partner in health. We provide authentic medicines and care just like a mother does. Fast, reliable, and always here for you.
                         </p>
                         <div className="flex gap-4">
-
-                            <a href="#" className="bg-slate-800 p-2 rounded-full hover:bg-[#14A396] hover:text-white transition-all text-gray-400">
-                                <Link to="https://www.linkedin.com/company/mompharmacy/">
-                                    <Linkedin size={18} />
-                                </Link>
-
+                            <a
+                                href="https://www.linkedin.com/company/mompharmacy/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="bg-slate-800 p-2 rounded-full hover:bg-[#14A396] hover:text-white transition-all text-gray-400"
+                            >
+                                <Linkedin size={18} />
                             </a>
                         </div>
                     </div>

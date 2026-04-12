@@ -109,3 +109,38 @@
 .animate-fading-circle {
   animation: fading-circle 1.2s infinite ease-in-out both;
 }
+
+/* Skeleton Loading Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.skeleton {
+  background: #f6f7f8;
+  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+  background-repeat: no-repeat;
+  background-size: 800px 100%;
+  display: inline-block;
+  position: relative;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: shimmer;
+  animation-timing-function: linear;
+}
+
+/* Image Transitions */
+.image-fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.image-loaded {
+  opacity: 1;
+}

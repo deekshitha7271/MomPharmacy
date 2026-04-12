@@ -3,6 +3,7 @@ import axios from 'axios';
 import Loader from '../components/Loader';
 import { AuthContext } from '../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
+import OptimizedImage from '../components/OptimizedImage';
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
@@ -73,7 +74,7 @@ const Orders = () => {
                                     {order.orderItems.map((item, index) => (
                                         <div key={index} className="flex items-center gap-4 py-3 border-b border-gray-50 last:border-0">
                                             <div className="w-16 h-16 bg-gray-50 rounded-lg p-2 border border-gray-100">
-                                                <img src={item.image} alt={item.name} className="w-full h-full object-contain" />
+                                                <OptimizedImage src={item.image} alt={item.name} className="w-full h-full object-contain" />
                                             </div>
                                             <div className="flex-1">
                                                 <p className="font-bold text-gray-800">{item.name}</p>
