@@ -74,7 +74,7 @@ const Orders = () => {
                                     {order.orderItems.map((item, index) => (
                                         <div key={index} className="flex items-center gap-4 py-3 border-b border-gray-50 last:border-0">
                                             <div className="w-16 h-16 bg-gray-50 rounded-lg p-2 border border-gray-100">
-                                                <OptimizedImage src={item.image} alt={item.name} className="w-full h-full object-contain" />
+                                                <OptimizedImage src={item.image} alt={item.name} className="w-full h-full" imageClassName="object-contain" />
                                             </div>
                                             <div className="flex-1">
                                                 <p className="font-bold text-gray-800">{item.name}</p>

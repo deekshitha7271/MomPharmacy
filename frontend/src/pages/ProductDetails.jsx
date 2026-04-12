@@ -44,7 +44,8 @@ const ProductDetails = () => {
                     <OptimizedImage
                         src={getImageUrl(medicine.imageUrl)}
                         alt={medicine.name}
-                        className="w-full h-auto object-contain max-h-96"
+                        className="w-full min-h-[300px] flex items-center justify-center"
+                        imageClassName="max-w-full h-auto object-contain max-h-96"
                     />
                 </div>
 

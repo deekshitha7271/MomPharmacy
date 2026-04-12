@@ -322,7 +322,7 @@ const Admin = () => {
                                 {categories.map(c => (
                                     <div key={c._id} className="flex items-center justify-between p-3 border border-gray-100 rounded-lg bg-gray-50">
                                         <div className="flex items-center gap-3">
-                                            <OptimizedImage src={getImageUrl(c.imageUrl)} alt={c.name} className="w-10 h-10 object-contain mix-blend-multiply" />
+                                            <OptimizedImage src={getImageUrl(c.imageUrl)} alt={c.name} className="w-10 h-10" imageClassName="object-contain mix-blend-multiply" />
                                             <span className="font-semibold text-sm">{c.name}</span>
                                         </div>
                                         <div>
@@ -472,7 +472,7 @@ const Admin = () => {
                                     {activePrescription.fileUrl.endsWith('.pdf') ? (
                                         <embed src={getImageUrl(activePrescription.fileUrl)} type="application/pdf" className="w-full h-full" />
                                     ) : (
-                                        <OptimizedImage src={getImageUrl(activePrescription.fileUrl)} alt="Prescription" className="w-full object-contain" />
+                                        <OptimizedImage src={getImageUrl(activePrescription.fileUrl)} alt="Prescription" className="w-full" imageClassName="object-contain" />
                                     )}
                                 </div>
                             </div>
@@ -484,7 +484,7 @@ const Admin = () => {
                                         {medicines.map(med => (
                                             <div key={med._id} className="flex justify-between items-center border p-2 rounded">
                                                 <div className="flex items-center gap-3">
-                                                    <OptimizedImage src={getImageUrl(med.imageUrl)} className="w-8 h-8 object-contain" alt="" />
+                                                    <OptimizedImage src={getImageUrl(med.imageUrl)} className="w-8 h-8" imageClassName="object-contain" alt="" />
                                                     <div>
                                                         <div className="font-bold">{med.name}</div>
                                                         <div className="text-sm text-gray-600">₹{med.price.toFixed(2)} | Stock: {med.stock}</div>

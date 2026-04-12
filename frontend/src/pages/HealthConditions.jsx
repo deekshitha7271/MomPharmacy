@@ -95,7 +95,7 @@ const HealthConditions = () => {
                                         </div>
                                     )}
                                     <Link to={`/medicine/${med._id}`} className="block overflow-hidden rounded-md mb-3 bg-white flex items-center justify-center p-2 h-36 mt-4">
-                                        <OptimizedImage src={getImageUrl(med.imageUrl)} alt={med.name} className="w-full h-full object-contain group-hover:scale-[1.05] transition-transform duration-300" />
+                                        <OptimizedImage src={getImageUrl(med.imageUrl)} alt={med.name} className="w-full h-full" imageClassName="object-contain group-hover:scale-[1.05] transition-transform duration-300" />
                                     </Link>
                                     <div className="flex-grow flex flex-col">
                                         <h3 className="text-sm font-semibold text-pharmacy-dark mb-1 line-clamp-2 leading-snug">

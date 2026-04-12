@@ -42,7 +42,8 @@ const MedicineCard = ({ medicine }) => {
                 <OptimizedImage
                     src={imageUrl}
                     alt={medicine.name}
-                    className="w-full h-full object-contain group-hover:scale-[1.05] transition-transform duration-300"
+                    className="w-full h-full"
+                    imageClassName="object-contain group-hover:scale-[1.05] transition-transform duration-300"
                 />
             </Link>
 
